@@ -61,7 +61,7 @@ const SignUp = ({ error }) => {
         <Grid container>
           <Grid item>
             <Link onClick={() => history.push("/auth/login")} variant="body2">
-              Don't have an account? Sign Up
+              Have an account? Sign in
             </Link>
           </Grid>
         </Grid>

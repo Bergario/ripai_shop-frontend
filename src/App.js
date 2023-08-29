@@ -86,16 +86,52 @@ const App = () => {
         <Route
           exact
           path="/"
-          component={() => <Products onFetchProducts={onProductFetch} />}
+          component={() => (
+            <Navbar>
+              <Products onFetchProducts={onProductFetch} />
+            </Navbar>
+          )}
         />
-        <Route path="/order" component={() => <Orders />} />
+        <Route
+          path="/order"
+          component={() => (
+            <Navbar>
+              <Orders />
+            </Navbar>
+          )}
+        />
         <Route
           path="/status?order_id=:id"
-          component={() => <PaymentDetail />}
+          component={() => (
+            <Navbar>
+              <PaymentDetail />
+            </Navbar>
+          )}
         />
-        <Route path="/status" component={PaymentDetail} />
-        <Route path="/cart" component={() => <Cart />} />
-        <Route path="/checkout" component={() => <Checkout />} />
+        <Route
+          path="/status"
+          component={() => (
+            <Navbar>
+              <PaymentDetail />
+            </Navbar>
+          )}
+        />
+        <Route
+          path="/cart"
+          component={() => (
+            <Navbar>
+              <Cart />
+            </Navbar>
+          )}
+        />
+        <Route
+          path="/checkout"
+          component={() => (
+            <Navbar>
+              <Checkout />
+            </Navbar>
+          )}
+        />
         <Route path="/admin" component={Dashboard} />
         <Redirect to="/" />
       </Switch>
@@ -109,15 +145,26 @@ const App = () => {
         <Route
           exact
           path="/"
-          component={() => <Products onFetchProducts={onProductFetch} />}
+          component={() => (
+            <Navbar>
+              <Products onFetchProducts={onProductFetch} />
+            </Navbar>
+          )}
         />
-        <Route path="/cart" component={() => <Cart />} />
-        {/* <Route path="/admin" component={Dashboard} /> */}
+        <Route
+          path="/cart"
+          component={() => (
+            <Navbar>
+              <Cart />
+            </Navbar>
+          )}
+        />
+        <Route path="/admin" component={Dashboard} />
         {/* <Route path="/status?order_id=:id" component={PaymentDetail} /> */}
         {/* <Route path="/status" component={PaymentDetail} /> */}
         <Route path={"/auth/login"} component={() => <Auth />} />
         <Route path={"/auth/signup"} component={() => <Auth />} />
-        {/* <Route path={"/order"} component={() => <Orders />} /> */}
+        <Route path={"/order"} component={() => <Orders />} />
         <Redirect to="/" />
       </Switch>
     ),
@@ -126,13 +173,11 @@ const App = () => {
 
   return (
     <div>
-      <Navbar>
-        <Suspense fallback={<div></div>}>
-          {isAuth ? RoutesAuth : Routes}
-        </Suspense>
-        {/* {routes} */}
-        {/* <BottomNav /> */}
-      </Navbar>
+      {/* <Navbar> */}
+      <Suspense fallback={<div></div>}>{isAuth ? RoutesAuth : Routes}</Suspense>
+      {/* {routes} */}
+      {/* <BottomNav /> */}
+      {/* </Navbar> */}
     </div>
   );
 };

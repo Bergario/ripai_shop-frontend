@@ -1,13 +1,20 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Pagination from "@material-ui/lab/Pagination";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  paging: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
 
 const PageComponent = (props) => {
+  const classes = useStyles();
   const { product } = useSelector((state) => ({
     product: state.product.product,
   }));
-
-  console.log(props.page);
 
   // Pagination
   const totalProducts = product.length != 0 ? product[0].countProduct : 6;
@@ -22,7 +29,7 @@ const PageComponent = (props) => {
       count={countPage}
       page={props.page}
       onChange={props.changePage}
-      className={props.paging}
+      className={classes.paging}
     />
   );
 };

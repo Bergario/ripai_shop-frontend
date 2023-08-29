@@ -60,6 +60,7 @@ const Checkout = () => {
         console.log(res);
 
         const url = res.data.redirect_url;
+        // window.open(url, "_blank").focus();
         window.location.replace(url);
         console.log(url);
       })

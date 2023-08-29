@@ -41,7 +41,7 @@ export const product = (query) => {
   return (dispatch) => {
     dispatch(productFecthStart());
     axios
-      .get(`http://localhost:9000/product?limit=6&skip=${skip}`, {
+      .get(`http://localhost:9000/product?limit=8&skip=${skip}`, {
         withCredentials: true,
       })
       .then((response) => {

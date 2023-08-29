@@ -47,7 +47,7 @@ export default makeStyles((theme) => ({
     display: "flex",
   },
   imgOrder: {
-    width: "100px",
+    width: "134px",
     height: "100px",
     margin: "10px",
   },

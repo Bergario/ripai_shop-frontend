@@ -5,6 +5,8 @@ import axios from "axios";
 
 import OrderItem from "./OrderItem/OrderItem";
 import useStyle from "./styles";
+import DummyOrderItem from "./OrderItem/dummy";
+import { Link } from "react-router-dom";
 
 const Orders = () => {
   const classes = useStyle();
@@ -62,10 +64,15 @@ const Orders = () => {
               );
             })}
           </Grid>
-          {order &&
+          {/* {order &&
             order.map((orders) => {
               return <OrderItem orderId={orders._id} />;
-            })}
+            })} */}
+          <DummyOrderItem />
+          {/* <div style={{ margin: "100px" }}>
+            <p>You have no orders</p>
+            <Link to="/">Order Now!</Link>
+          </div> */}
         </div>
       </div>
     </Container>

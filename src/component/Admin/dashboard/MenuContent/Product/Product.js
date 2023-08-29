@@ -49,11 +49,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiOutlinedInput-root": { marginRight: "10px" },
   },
-  paging: {
-    display: "flex",
-    justifyContent: "center",
-    padding: "10px",
-  },
 }));
 
 function Product({ css }) {
@@ -163,7 +158,6 @@ function Product({ css }) {
           <EditProductDialog />
           <ListProduct products={products} />
           <PageComponent
-            paging={classes.paging}
             page={page}
             changePage={changePage}
             products={products}

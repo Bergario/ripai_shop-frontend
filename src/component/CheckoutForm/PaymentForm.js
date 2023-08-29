@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Container } from "@material-ui/core";
 
 import Review from "./Review";
+import { Link } from "react-router-dom";
 
 const PaymentForm = ({
   checkoutCart,
@@ -51,7 +52,13 @@ const PaymentForm = ({
           <Button variant="contained" onClick={() => backStep()}>
             back
           </Button>
-          <Button type="submit" variant="contained" color="primary">
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            // component={Link}
+            // to="/order"
+          >
             Pay
           </Button>
         </div>

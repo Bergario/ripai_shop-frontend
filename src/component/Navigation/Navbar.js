@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import useStyles from "./styles";
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/Logo-SBB.png";
 import AccountNav from "./AccountNav";
 import SideBar from "./SideBar/sideBar";
 import SearchBox from "../../Utils/searchBox";
@@ -39,13 +39,17 @@ const NavBar = ({ children }) => {
   const searchHandler = useCallback((e) => {
     setKeywords(e.target.value);
   });
+  console.log(keywords);
 
-  const changePage = useCallback((e, value) => {
-    console.log("cyeegg", value);
-    setPage(value);
-    onSearchProduct({ pencarian: keywords, skipPage: value * 6 - 6 });
-    setSkipPage(value * 6 - 6);
-  }, []);
+  const changePage = useCallback(
+    (e, value) => {
+      console.log("cyeegg", value);
+      setPage(value);
+      onSearchProduct({ pencarian: keywords, skipPage: value * 6 - 6 });
+      setSkipPage(value * 6 - 6);
+    },
+    [keywords]
+  );
 
   const NavMenu = useMemo(() => <AccountNav isAuth={isAuth} />, [isAuth]);
 
@@ -71,7 +75,7 @@ const NavBar = ({ children }) => {
             <img
               src={logo}
               alt="product.js"
-              height="25px"
+              height="30px"
               className={classes.image}
             />
             Ripai Shop
